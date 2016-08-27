@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.12/datatables.min.css"/>
+</head>
+<body>
+hello world!
+
+<table id="example">
+    <thead>
+        <tr>
+            <th>no</th>
+            <th>name</th>
+        </tr>
+    </thead>
+</table>
+
+<script src="/js/jquery-3.1.0.min.js"></script>
+<script src="/js/jquery.dataTables.min.js"></script>
+<script>
+    $('#example').DataTable( {
+        processing: true,
+        serverSide: true,
+        ajax: {
+            url: '/member/list',
+            type: 'POST'
+        },
+        columns: [
+            { "data": "id" },
+            { "data": "name" }
+        ]
+    } );
+</script>
+</body>
+</html>
